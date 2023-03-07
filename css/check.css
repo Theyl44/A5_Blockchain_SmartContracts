@@ -1,0 +1,76 @@
+#maindiv {
+    padding-top: 1;
+    padding-left: 5%;
+}
+
+#title {
+    text-align: center;
+}
+
+
+/* cacher l'input file d'origine */
+
+input[type="file"] {
+    margin-top: 20%;
+    display: none;
+}
+
+.file-upload {
+    text-align: center;
+}
+
+
+/* afficher le bouton personnalisé */
+
+.upload-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #2196F3;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+/* style du texte */
+
+.upload-btn-text {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+
+/* définir la zone de dépôt pour le fichier */
+
+.file-drop-zone {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 2px dashed #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+/* style du texte pour la zone de dépôt */
+
+.file-drop-text {
+    font-size: 16px;
+    color: #666;
+}
+
+
+/* changer la couleur du bord de la zone de dépôt en fonction du survol */
+
+.file-drop-zone:hover {
+    border-color: #2196F3;
+}
+
+
+/* afficher le nom du fichier sélectionné */
+
+.selected-file {
+    display: inline-block;
+    margin-left: 20px;
+    font-size: 16px;
+    color: #666;
+}

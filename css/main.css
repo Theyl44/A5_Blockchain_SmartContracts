@@ -1,0 +1,21 @@
+#maindiv {
+    margin-top: 2%;
+    text-align: justify;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+#title {
+    text-align: center;
+    padding-bottom: 3%;
+}
+
+#droit {
+    float: right;
+    display: flex;
+}
+
+#gauche {
+    float: left;
+    display: flex;
+}
