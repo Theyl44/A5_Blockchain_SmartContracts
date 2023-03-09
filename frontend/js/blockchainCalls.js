@@ -1,6 +1,6 @@
 let web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:7545"));
-let contractAddress = "0x9e888c3d51ADCbefEfde0B21c720b9C532168F4a";
-let accountAddress = "0x670E2C6bEE93B94f5bB60Cb454bE062fDF068dd0";
+let contractAddress = "0x14e8C31148E2634f3C323E3103039FE8151397dE";
+let accountAddress = "0x2C87d655Ff4E2931BCa4600A8A03608B84166F4F";
 let gazForSC =  200000;
 let gazPrice = 100000;
 let abi = [
@@ -305,7 +305,7 @@ async function getNumberOfCertificate(hashCertificate){
             })
 }
 
-async function isCertificateExist(hashCertificate){
+async function doesCertificateExist(hashCertificate){
     return await
         contract.methods.isCertificateExist(hashCertificate).call()
             .then(result => {
@@ -337,24 +337,32 @@ async function addCertificate(hashCertificate, firstName, lastName, dp, dateDipl
 
 async function summaryDiplome(hashCertificate){
 
-    let isCertificateValid = await isCertificateExist(hashCertificate);
+    let isCertificateValid = await doesCertificateExist(hashCertificate);
+    let result = [];
     if(isCertificateValid){
         let fName = await getFirstName(hashCertificate);
         let lName = await getLastName(hashCertificate);
-        let dp1 = await getDp(hashCertificate);
+        let dp = await getDp(hashCertificate);
         let dateDiplome = await getDateDiplome(hashCertificate);
-        console.log("Diplome de : "+fName+" "+lName+ " in dp : "+dp1+" gain the "+dateDiplome);
+        console.log("Diplome de : "+fName+" "+lName+ " in dp : "+dp+" gain the "+dateDiplome);
+        result.push(fName);
+        result.push(lName);
+        result.push(dp);
+        result.push(dateDiplome);
     }else{
         console.log("No diploma for this certificate, wrong certificate");
     }
+    return result;
 }
 
 async function checkIfCertificateExist(hashCertificate){
-    let isCertificateValid = await isCertificateExist(hashCertificate);
+    let isCertificateValid = await doesCertificateExist(hashCertificate);
     if(isCertificateValid) {
         console.log("this certificate is valid");
+        return true;
     }else{
         console.log("error,  this certificate is not valid");
+        return false;
     }
 }
 
@@ -375,10 +383,3 @@ let firstName2 = "Emeric";
 let lastName2 = "Guichet";
 let dp2="Cyber";
 let date2="10/10/2023";
-
-addCertificate(hash2, firstName2, lastName2, dp2, date2);
-summaryDiplome(hash);
-summaryDiplome(hash2);
-summaryDiplome("gergzeez");
-checkIfCertificateExist("gegezgzgz");
-checkIfCertificateExist(hash2);
