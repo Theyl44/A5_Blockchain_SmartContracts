@@ -19,11 +19,16 @@ contract wlgCertification{
         string lastName;
         string dp;
         string date;
+        bool isUsed;
     }
     mapping(string => certificate) Certificates;
 
     function getCertificate(string memory hashCertificate) public view returns(certificate memory){
         return Certificates[hashCertificate];
+    }
+
+    function isCertificateExist(string memory hashCertificate) public view returns(bool){
+        return Certificates[hashCertificate].isUsed;
     }
 
     function getFirstName(string memory hashCertificate) public view returns(string memory){
@@ -56,6 +61,7 @@ contract wlgCertification{
         Certificates[hashCertif].lastName = lastNameUser;
         Certificates[hashCertif].dp = dpUser;
         Certificates[hashCertif].date = dateDiplome;
+        Certificates[hashCertif].isUsed = true;
 
         numberOfCertificate = numberOfCertificate+1;
     }
