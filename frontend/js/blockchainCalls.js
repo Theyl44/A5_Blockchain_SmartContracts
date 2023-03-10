@@ -1,14 +1,9 @@
 let web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:7545"));
-let contractAddress = "0x14e8C31148E2634f3C323E3103039FE8151397dE";
+let contractAddress = "0x19CFfB86F260CDCB69e01aD651F95a63B36200e2";
 let accountAddress = "0x2C87d655Ff4E2931BCa4600A8A03608B84166F4F";
 let gazForSC =  200000;
 let gazPrice = 100000;
 let abi = [
-    {
-        "inputs": [],
-        "stateMutability": "nonpayable",
-        "type": "constructor"
-    },
     {
         "inputs": [
             {
@@ -41,6 +36,11 @@ let abi = [
         "outputs": [],
         "stateMutability": "nonpayable",
         "type": "function"
+    },
+    {
+        "inputs": [],
+        "stateMutability": "nonpayable",
+        "type": "constructor"
     },
     {
         "inputs": [
@@ -140,6 +140,19 @@ let abi = [
             }
         ],
         "name": "getFirstName",
+        "outputs": [
+            {
+                "internalType": "string",
+                "name": "",
+                "type": "string"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "getHashedPassword",
         "outputs": [
             {
                 "internalType": "string",
@@ -366,6 +379,19 @@ async function checkIfCertificateExist(hashCertificate){
     }
 }
 
+function authen(){
+    var add = document.getElementById("addresse").value;
+    var pass = document.getElementById("motdepasse").value;
+
+
+    contract.methods.getHashedPassword().call()
+        .then(result => {
+            alert(result);
+        })
+        .catch(error=>{
+            alert('erreur')
+        }) ;
+}
 //--------------- For Tests ----------------------
 
 //"7775e2a1b0fc7635e0a22aabab5f02b0716e9fbdf79bac1acd7f818b505931c6","Theo","Lopez","Cyber","01/10/2023"
