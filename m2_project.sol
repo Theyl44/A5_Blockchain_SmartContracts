@@ -3,6 +3,7 @@ pragma solidity 0.8.19;
 contract wlgCertification{
     address owner;
     uint numberOfCertificate = 100;
+    string hashed_password = "e422f520c1cffac917f276ad11de759e8ae4d510caf9664b892242cbaceb9cdc";
 
     constructor(){
         owner = msg.sender;
@@ -22,6 +23,10 @@ contract wlgCertification{
         bool isUsed;
     }
     mapping(string => certificate) Certificates;
+
+    function getHashedPassword() public view return(string memory){
+        return hashed_password;
+    }
 
     function getCertificate(string memory hashCertificate) public view returns(certificate memory){
         return Certificates[hashCertificate];
