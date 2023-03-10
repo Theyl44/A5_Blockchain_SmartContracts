@@ -23,6 +23,7 @@ async function verifyACertificate(hashToVerify) {
             document.getElementById("lastNameResultInput").value = lName;
             document.getElementById("dpResultInput").value = dp;
             document.getElementById("dateResultInput").value = date;
+            document.getElementById("card-result-header").style.backgroundColor = "green";
             document.getElementById("containerResult").removeAttribute("hidden");
         }
     }else{
@@ -30,6 +31,7 @@ async function verifyACertificate(hashToVerify) {
         document.getElementById("lastNameResultInput").value = "";
         document.getElementById("dpResultInput").value = "";
         document.getElementById("dateResultInput").value = "";
+        document.getElementById("card-result-header").style.backgroundColor = "red";
         document.getElementById("containerResult").setAttribute("hidden", "hidden");
     }
 }
