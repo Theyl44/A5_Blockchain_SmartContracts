@@ -24,7 +24,7 @@ contract wlgCertification{
     }
     mapping(string => certificate) Certificates;
 
-    function getHashedPassword() public view return(string memory){
+    function getHashedPassword() public view returns(string memory){
         return hashed_password;
     }
 
@@ -60,7 +60,7 @@ contract wlgCertification{
         return numberOfCertificate;
     }
 
-    function addCertificate(string memory hashCertif, string memory firstNameUser, string memory lastNameUser, string memory dpUser, string memory dateDiplome) public{
+    function addCertificate(string memory hashCertif, string memory firstNameUser, string memory lastNameUser, string memory dpUser, string memory dateDiplome) public onlyOwner{
         Certificates[hashCertif].id = numberOfCertificate+1;
         Certificates[hashCertif].firstName = firstNameUser;
         Certificates[hashCertif].lastName = lastNameUser;

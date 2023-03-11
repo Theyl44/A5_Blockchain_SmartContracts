@@ -1,6 +1,6 @@
 let web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:7545"));
-let contractAddress = "0x61841d6cfa006792a1B42911Ab665BD75DD32232";
-let accountAddress = "0x131A79882B350E08099C24763ec8761a88798fED";
+let contractAddress = "0x76EF614578e8C02b7E26756de694Cb417b534929";
+let accountAddress = "0x3D9E531270295Be6c6BEB48faAF8880b14E959F9";
 let gazForSC =  200000;
 let gazPrice = 100000;
 let abi = [
