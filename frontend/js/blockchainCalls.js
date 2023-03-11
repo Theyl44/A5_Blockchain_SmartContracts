@@ -1,6 +1,6 @@
 let web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:7545"));
-let contractAddress = "0x14e8C31148E2634f3C323E3103039FE8151397dE";
-let accountAddress = "0x2C87d655Ff4E2931BCa4600A8A03608B84166F4F";
+let contractAddress = "0x61841d6cfa006792a1B42911Ab665BD75DD32232";
+let accountAddress = "0x131A79882B350E08099C24763ec8761a88798fED";
 let gazForSC =  200000;
 let gazPrice = 100000;
 let abi = [
@@ -140,6 +140,19 @@ let abi = [
             }
         ],
         "name": "getFirstName",
+        "outputs": [
+            {
+                "internalType": "string",
+                "name": "",
+                "type": "string"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "getHashedPassword",
         "outputs": [
             {
                 "internalType": "string",
@@ -362,7 +375,35 @@ async function checkIfCertificateExist(hashCertificate){
         return true;
     }else{
         console.log("error,  this certificate is not valid");
+        var t1 = document.getElementById("title");
+        t1.innerHTML+= "<div class='alert alert-danger' role='alert'> Accès non autorisé </div>";
         return false;
+    }
+}
+
+async function getHashedPassword(){
+    return await
+        contract.methods.getHashedPassword().call()
+            .then(result => {
+                return result;
+            })
+            .catch(error => {
+                console.log(error);
+            })
+}
+async function authen() {
+    let pass = await getHashedPassword();
+    let user_pass = document.getElementById("motdepasse").value;
+    let user_add = document.getElementById("addresse").value;
+    var encrypted_pass = CryptoJS.SHA256(user_pass);
+
+    if(encrypted_pass == pass){
+        //alert("OKOK");
+        window.location.href = "../html/ajout.html";
+    }else {
+        //alert("NOT OK");
+        var t1 = document.getElementById("title");
+        t1.innerHTML+= "<div class='alert alert-danger' role='alert'> Accès non autorisé </div>";
     }
 }
 
