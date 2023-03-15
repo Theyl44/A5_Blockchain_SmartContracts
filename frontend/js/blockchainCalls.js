@@ -404,21 +404,3 @@ async function authen() {
         t1.innerHTML+= "<div class='alert alert-danger' role='alert'> Accès non autorisé </div>";
     }
 }
-
-//--------------- For Tests ----------------------
-
-//"7775e2a1b0fc7635e0a22aabab5f02b0716e9fbdf79bac1acd7f818b505931c6","Theo","Lopez","Cyber","01/10/2023"
-
-let hash = "7775e2a1b0fc7635e0a22aabab5f02b0716e9fbdf79bac1acd7f818b505931c6";
-let firstName = "Theo";
-let lastName = "Lopez";
-let dp="Cyber";
-let date="01/10/2023";
-
-//"bonjour","Emeric","Guichet","Cyber","10/10/2023"
-
-let hash2="bonjour";
-let firstName2 = "Emeric";
-let lastName2 = "Guichet";
-let dp2="Cyber";
-let date2="10/10/2023";
