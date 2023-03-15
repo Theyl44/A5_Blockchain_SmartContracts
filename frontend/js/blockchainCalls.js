@@ -400,7 +400,7 @@ async function authen() {
     if(encrypted_pass == pass){
         //alert("OKOK");
         sessionStorage.setItem("walletAddress", user_add);
-        sessionStorage.setItem("password", user_pass);
+        sessionStorage.setItem("password", encrypted_pass);
         window.location.href = "../html/ajout.html";
     }else {
         //alert("NOT OK");
