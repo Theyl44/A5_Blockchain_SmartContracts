@@ -371,12 +371,8 @@ async function summaryDiplome(hashCertificate){
 async function checkIfCertificateExist(hashCertificate){
     let isCertificateValid = await doesCertificateExist(hashCertificate);
     if(isCertificateValid) {
-        console.log("this certificate is valid");
         return true;
     }else{
-        console.log("error,  this certificate is not valid");
-        var t1 = document.getElementById("title");
-        t1.innerHTML+= "<div class='alert alert-danger' role='alert'> Accès non autorisé </div>";
         return false;
     }
 }
