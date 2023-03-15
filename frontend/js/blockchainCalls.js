@@ -1,6 +1,6 @@
 let web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:7545"));
-let contractAddress = "0x76EF614578e8C02b7E26756de694Cb417b534929";
-let accountAddress = "0x3D9E531270295Be6c6BEB48faAF8880b14E959F9";
+let contractAddress = "0x614381aC673fB63e891F8a7EB1B25D7D188841A2";
+let accountAddress = "0x430b0d8b8add71E5b5EA552b743d44660c16d822";
 let gazForSC =  200000;
 let gazPrice = 100000;
 let abi = [
@@ -399,6 +399,8 @@ async function authen() {
 
     if(encrypted_pass == pass){
         //alert("OKOK");
+        sessionStorage.setItem("walletAddress", user_add);
+        sessionStorage.setItem("password", user_pass);
         window.location.href = "../html/ajout.html";
     }else {
         //alert("NOT OK");
